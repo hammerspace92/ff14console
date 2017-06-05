@@ -1,0 +1,36 @@
+ID#,Mark 1,# Needed,Loc1,Mark 2,# Needed,Loc2,Mark 3,# Needed,Loc3,Mark 4,# Needed,Loc4,Mark 5,# Needed,Loc5,Level
+1,Upland Mylodon,3,CWH,Deepeye,3,CWH,Paissa,3,SEA,Brown Bear,2,FORE,Dragonfly Watcher,2,FORE,1
+6,Frost Grenade,2,CWH,Archaeornis,3,CWH,Obdella,2,SEA,Bandersnatch,3,FORE,Vinegaroon,2,FORE,1
+9,Deepeye,3,CWH,Rheum,3,CWH,Nat'laii Gundu,1,SEA,Melia,2,FORE,Tyrannosaur,2,FORE,1
+10,Icetrap,3,CWH,Ice Commander,3,CWH,Cloudworm,1,SEA,Wild Chocobo,3,FORE,Syricta,2,FORE,1
+14,Gelato,2,CWH,Rheum,3,CWH,Gaelicat,3,SEA,Forelands Hippocerf,3,FORE,Dravanian Wyvern,3,FORE,1
+22,Silver Wolf,3,CWH,Polar Bear,3,CWH,Sanuwa,1,SEA,Miacid,3,FORE,Gallimimus,3,FORE,1
+23,Bergthurs,2,CWH,Lone Yeti,2,CWH,Lan'laii Gundu,1,SEA,Clearwater Ninki Nanka,2,FORE,Cloudworm,1,SEA,1
+28,Wooly Yak,2,CWH,Ice Commander,3,CWH,Gastornis,3,SEA,Miacid,3,FORE,Obdella,2,SEA,1
+32,Polar Bear,3,CWH,Archaeornis,3,CWH,Conodont,1,SEA,Feather Flea,3,FORE,Loaghtan,3,FORE,1
+2,Inland Tursus,2,CWH,Brown Bear,2,FORE,Sanuwa,1,SEA,Hropken,2,MISTS,Elder Syricta,2,MISTS,2
+5,Ice Commander,3,CWH,Melia,2,FORE,Vuk'laii Gundu,1,SEA,Moss Dragon,2,MISTS,Vouivre,2,MISTS,2
+8,Gelato,2,CWH,Miacid,3,FORE,Lan'laii Gundu,1,SEA,Tulihand,2,MISTS,Bladed Vinegaroon,2,MISTS,2
+13,Archaeornis,3,CWH,Forelands Hippocerf,3,FORE,Nat'laii Gundu,1,SEA,Wadjet,2,MISTS,Mists Biast,2,MISTS,2
+15,Lone Yeti,2,CWH,Loaghtan,3,FORE,Cloudworm,1,SEA,Vouivre,2,MISTS,Dragonet,3,MISTS,2
+18,Polar Bear,3,CWH,Vinegaroon,2,FORE,Paissa,3,SEA,Limestone Golem,2,MISTS,Cloud Aevis,1,MISTS,2
+21,Gastornis,2,SEA,Syricta,2,FORE,Dhalmel,3,SEA,Amphiptere,2,MISTS,Blood Dragon,1,MISTS,2
+27,Ice Commander,3,CWH,Bandersnatch,3,FORE,Conodont,1,SEA,Sankchinni,3,MISTS,Dragonet,3,MISTS,2
+29,Gaelicat,3,SEA,Gallimimus,3,FORE,Wisent,2,SEA,Lower Skylord,2,MISTS,Diresaur,3,MISTS,2
+3,Allagan Chimera,1,AZYS,Orn Kite,3,HINT,Amphiptere,2,MISTS,Loth Firedrone,1,FORE,Anzu,2,SEA,3
+4,Snapper-rook,2,AZYS,Poroggo,2,HINT,Hropken,2,MISTS,Rheum,3,CWH,Loaghtan,3,FORE,3
+7,Owlbear,3,AZYS,Opken,3,HINT,Sankchinni,3,MISTS,Lone Yeti,2,CWH,Gallimimus,3,FORE,3
+11,Lesser Hydra,2,AZYS,Narbrooi,3,HINT,Elder Syricta,2,MISTS,Window Wamoura,1,SEA,Polar Bear,3,CWH,3
+12,Corpse Flower,2,AZYS,Tarantula Hawk,3,HINT,Mists Drake,3,MISTS,Loth Cultivator,1,FORE,Gaelicat,3,SEA,3
+16,Meracydian Falak,1,AZYS,Wildebeest,3,HINT,Bladed Vinegaroon,2,MISTS,Vundu Totem,1,SEA,Frost Grenade,2,CWH,3
+17,Lamia Thelytoke,1,AZYS,Bifericeras,3,HINT,Moss Dragon,2,MISTS,Icetrap,3,CWH,Miacid,3,FORE,3
+19,Enforcement Droid,1,AZYS,Goblin Sharpshooter,2,HINT,Blood Dragon,1,MISTS,Groundskeeper,3,SEA,Archaeornis,3,CWH,3
+20,Lamia Cybrid,1,AZYS,Damselfly,2,HINT,Lower Skylord,2,MISTS,Thunder Dragon,1,FORE,Tsanahale,2,SEA,3
+24,Meracydian Brobinyak,1,AZYS,Goblin Tinkerer,2,HINT,Diresaur,3,MISTS,Endymion,2,SEA,Gelato,2,CWH,3
+25,Reptoid,2,AZYS,Ratel,2,HINT,Vouivre,3,MISTS,Gastornis,2,SEA,Dravanian Aevis,2,FORE,3
+26,Proto-naga,2,AZYS,Crawler,3,HINT,Dragonet,3,MISTS,Bandersnatch,3,FORE,Paissa,3,SEA,3
+30,Clockwork Engineer,1,AZYS,Cockatrice,3,HINT,Limestone Golem,2,MISTS,Deepeye,3,CWH,Tyrannosaur,2,FORE,3
+31,Empuse,2,AZYS,Great Morbol,1,HINT,Cloud Aevis,1,MISTS,Loth Steeldrone,1,FORE,Toco Toco,3,SEA,3
+33,Clockwork Harvestman,3,AZYS,Sun Leech,2,HINT,Wadjet,2,MISTS,Upland Mylodon,3,CWH,Vinegaroon,3,FORE,3
+34,Clockwork Paladin,1,AZYS,Okeanis,2,HINT,Tulihand,3,MISTS,Bergthurs,2,CWH,Syricta,2,FORE,3
+35,Meracydian Vouivre,1,AZYS,Goblin Brandisher,1,HINT,Mists Biast,2,MISTS,Window Wamouracampa,2,SEA,Wooly Yak,2,CWH,3
