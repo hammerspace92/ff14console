@@ -423,42 +423,42 @@ int main()
 
 				for (int i = 0; i < maxSize; i++) {
 					if (i < CWH_V.size()) {
-						cout << setw(25) << CWH_V[i].givename(); // << "| " << setw(3) << right << CWH_V[i].givenum();
+						cout << setw(20) << CWH_V[i].givename() << "| " << setw(3) << CWH_V[i].givenum();
 					}
 					else {
 						cout << setw(25) << "";
 					}
 
 					if (i < FORE_V.size()) {
-						cout << setw(25) << FORE_V[i].givename();
+						cout << setw(20) << FORE_V[i].givename() << "| " << setw(3) << FORE_V[i].givenum();
 					}
 					else {
 						cout << setw(25) << "";
 					}
 
 					if (i < MISTS_V.size()) {
-						cout << setw(24) << MISTS_V[i].givename();
+						cout << setw(20) << MISTS_V[i].givename() << "| " << setw(2) << MISTS_V[i].givenum();
 					}
 					else {
 						cout << setw(24) << "";
 					}
 
 					if (i < HINT_V.size()) {
-						cout << setw(24) << HINT_V[i].givename();
+						cout << setw(20) << HINT_V[i].givename() << "| " << setw(2) << HINT_V[i].givenum();
 					}
 					else {
 						cout << setw(24) << "";
 					}
 
 					if (i < SEA_V.size()) {
-						cout << setw(24) << SEA_V[i].givename();
+						cout << setw(20) << SEA_V[i].givename() << "| " << setw(2) << SEA_V[i].givenum();
 					}
 					else {
 						cout << setw(24) << "";
 					}
 
 					if (i < AZYS_V.size()) {
-						cout << AZYS_V[i].givename(); //<< setw(24);
+						cout << setw(20) << AZYS_V[i].givename() << "| " << setw(2) << AZYS_V[i].givenum(); //<< setw(24);
 					}
 					else {
 						cout << ""; //<< setw(24);
