@@ -84,6 +84,18 @@ vector<Hunt> MISTS_V;
 vector<Hunt> HINT_V;
 vector<Hunt> SEA_V;
 vector<Hunt> AZYS_V;
+/*
+LOCATION KEY:
+CWH = Coerthas Western Highlands
+FORE = The Dravanian Forelands
+MISTS = The Churning Mists
+HINT = The Dravanian Hinterlands
+SEA = The Sea of Clouds
+AZYS = Azys Lla
+
+"The" preface included to maintain consistency with autocomplete dictionary in FFXIV.
+
+*/
 
 void bInsert(Bill in1) {
 	bool present = false;
@@ -180,11 +192,13 @@ int main()
 {
 	cout << "Hello world!" << endl;
 	string input, filename = "hunts.csv";
+	string version = "hw";
 
 	cout << "Input CSV file name (leave 1 if using default Heavensward hunts): ";
 	std::cin >> input;
 	if (input != "1") {
 		filename = input;
+		version = "sb";
 	}
 	ifstream file(filename);
 	getline(file, input);
@@ -288,7 +302,7 @@ int main()
 	bool running = true, L1running = true, L2running = true, L3running = true, dRun = true;
 	bool L1chosen = false, L2chosen = false, L3chosen = false;
 	int billnum = 0;
-
+	int maxSize = 0;
 	//Main menu loop
 	while (running) {
 		cout << "%%%% FFXIV Hunt Tracker %%%%\n";
@@ -387,83 +401,86 @@ int main()
 		else if (input == "4") {
 			while (dRun) {
 				//cout << CWH_V.size() << " " << FORE_V.size() << " " << MISTS_V.size() << " " << HINT_V.size() << " " << SEA_V.size() << " " << AZYS_V.size() << endl;
+				
+				if (version == "hw") {
+					cout << setw(25) << left << "Coerthas Western";
+					cout << setw(25) << left << "Drav. Forelands";
+					cout << setw(24) << left << "Churning Mists";
+					cout << setw(24) << left << "Drav. Hinterlands";
+					cout << setw(24) << left << "Sea of Clouds";
+					cout << left << "Azys Lla";// << setw(24);
+					cout << endl;
 
-				cout << setw(25) << left << "Coerthas Western";
-				cout << setw(25) << left << "Drav. Forelands"	;
-				cout << setw(24) << left << "Churning Mists" ;
-				cout << setw(24) << left << "Drav. Hinterlands" ;
-				cout << setw(24) << left << "Sea of Clouds" ;
-				cout << left << "Azys Lla" ;// << setw(24);
-				cout << endl;
-
-				int maxSize = 0;
-				if (maxSize < CWH_V.size()) {
-					maxSize = CWH_V.size();
-				}
-				if (maxSize < FORE_V.size()) {
-					maxSize = FORE_V.size();
-				}
-				if (maxSize < MISTS_V.size()) {
-					maxSize = MISTS_V.size();
-				}
-				if (maxSize < HINT_V.size()) {
-					maxSize = HINT_V.size();
-				}
-				if (maxSize < SEA_V.size()) {
-					maxSize = SEA_V.size();
-				}
-				if (maxSize < AZYS_V.size()) {
-					maxSize = AZYS_V.size();
-				}
-
-				for (int i = 0; i < 150; i++) {
-					cout << "=";
-				}
-				cout << endl;
-
-				for (int i = 0; i < maxSize; i++) {
-					if (i < CWH_V.size()) {
-						cout << setw(20) << CWH_V[i].givename() << "| " << setw(3) << CWH_V[i].givenum();
+					
+					if (maxSize < CWH_V.size()) {
+						maxSize = CWH_V.size();
 					}
-					else {
-						cout << setw(25) << "";
+					if (maxSize < FORE_V.size()) {
+						maxSize = FORE_V.size();
+					}
+					if (maxSize < MISTS_V.size()) {
+						maxSize = MISTS_V.size();
+					}
+					if (maxSize < HINT_V.size()) {
+						maxSize = HINT_V.size();
+					}
+					if (maxSize < SEA_V.size()) {
+						maxSize = SEA_V.size();
+					}
+					if (maxSize < AZYS_V.size()) {
+						maxSize = AZYS_V.size();
 					}
 
-					if (i < FORE_V.size()) {
-						cout << setw(20) << FORE_V[i].givename() << "| " << setw(3) << FORE_V[i].givenum();
-					}
-					else {
-						cout << setw(25) << "";
-					}
-
-					if (i < MISTS_V.size()) {
-						cout << setw(20) << MISTS_V[i].givename() << "| " << setw(2) << MISTS_V[i].givenum();
-					}
-					else {
-						cout << setw(24) << "";
-					}
-
-					if (i < HINT_V.size()) {
-						cout << setw(20) << HINT_V[i].givename() << "| " << setw(2) << HINT_V[i].givenum();
-					}
-					else {
-						cout << setw(24) << "";
-					}
-
-					if (i < SEA_V.size()) {
-						cout << setw(20) << SEA_V[i].givename() << "| " << setw(2) << SEA_V[i].givenum();
-					}
-					else {
-						cout << setw(24) << "";
-					}
-
-					if (i < AZYS_V.size()) {
-						cout << setw(20) << AZYS_V[i].givename() << "| " << setw(2) << AZYS_V[i].givenum(); //<< setw(24);
-					}
-					else {
-						cout << ""; //<< setw(24);
+					for (int i = 0; i < 150; i++) {
+						cout << "=";
 					}
 					cout << endl;
+
+					for (int i = 0; i < maxSize; i++) {
+						if (i < CWH_V.size()) {
+							cout << setw(20) << CWH_V[i].givename() << "| " << setw(3) << CWH_V[i].givenum();
+						}
+						else {
+							cout << setw(25) << "";
+						}
+
+						if (i < FORE_V.size()) {
+							cout << setw(20) << FORE_V[i].givename() << "| " << setw(3) << FORE_V[i].givenum();
+						}
+						else {
+							cout << setw(25) << "";
+						}
+
+						if (i < MISTS_V.size()) {
+							cout << setw(20) << MISTS_V[i].givename() << "| " << setw(2) << MISTS_V[i].givenum();
+						}
+						else {
+							cout << setw(24) << "";
+						}
+
+						if (i < HINT_V.size()) {
+							cout << setw(20) << HINT_V[i].givename() << "| " << setw(2) << HINT_V[i].givenum();
+						}
+						else {
+							cout << setw(24) << "";
+						}
+
+						if (i < SEA_V.size()) {
+							cout << setw(20) << SEA_V[i].givename() << "| " << setw(2) << SEA_V[i].givenum();
+						}
+						else {
+							cout << setw(24) << "";
+						}
+
+						if (i < AZYS_V.size()) {
+							cout << setw(20) << AZYS_V[i].givename() << "| " << setw(2) << AZYS_V[i].givenum(); //<< setw(24);
+						}
+						else {
+							cout << ""; //<< setw(24);
+						}
+						cout << endl;
+					}
+					
 				}
 				if (maxSize == 0) {
 					cout << "You have not selected any hunts.";
@@ -481,6 +498,7 @@ int main()
 					L1chosen = false;
 					L2chosen = false;
 					L3chosen = false;
+					maxSize = 0;
 
 					vEmpty(CWH_V);
 					vEmpty(FORE_V);
