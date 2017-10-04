@@ -78,12 +78,25 @@ public:
 
 //Global variables. yes i know it's bad idk wtf i'm doing right now
 
-vector<Hunt> CWH_V;
-vector<Hunt> FORE_V;
-vector<Hunt> MISTS_V;
-vector<Hunt> HINT_V;
-vector<Hunt> SEA_V;
-vector<Hunt> AZYS_V;
+vector<Hunt> CWH_V;		//CWH
+vector<Hunt> FORE_V;	//FORE
+vector<Hunt> MISTS_V;	//MISTS
+vector<Hunt> HINT_V;	//HINTERLANDS
+vector<Hunt> SEA_V;		//SEA OF CLOUDS
+vector<Hunt> AZYS_V;	//AZYS LLA
+
+vector<Hunt> FRIN_V;
+vector<Hunt> RUBY_V;
+vector<Hunt> YAN_V;
+vector<Hunt> AZIM_V;
+vector<Hunt> PEAKS_V;
+vector<Hunt> LOCHS_V;
+
+/*
+CWH	 == SEA   -> FORE -> MISTS  -> HINT -> AZYS
+FRIN == PEAKS -> RUBY -> YANXIA -> AZIM -> LOCHS
+*/
+
 /*
 LOCATION KEY:
 CWH = Coerthas Western Highlands
@@ -181,6 +194,92 @@ void bInsert(Bill in1) {
 	return;
 }
 
+
+//INSERT for SB hunts
+void sbInsert(Bill in1) {
+	bool present = false;
+	vector<Hunt> tVec = in1.giveV();
+	Hunt ch1;
+	string loc1;
+	for (int i = 0; i < tVec.size(); i++) {
+		ch1 = tVec[i];
+		loc1 = ch1.giveloc();
+		//cout << "TVEC SIZE: " << tVec.size() << endl;
+		if (loc1 == "FRIN") {
+			for (int j = 0; j < FRIN_V.size(); j++) {
+				if (FRIN_V[j].givename() == ch1.givename()) {
+					present = true;
+				}
+			}
+			if (present != true) {
+				FRIN_V.push_back(ch1);
+			}
+
+		}
+		else if (loc1 == "PEAKS") {
+			for (int j = 0; j < PEAKS_V.size(); j++) {
+				if (PEAKS_V[j].givename() == ch1.givename()) {
+					present = true;
+				}
+			}
+			if (present != true) {
+				PEAKS_V.push_back(ch1);
+			}
+
+		}
+		else if (loc1 == "YAN") {
+			for (int j = 0; j < YAN_V.size(); j++) {
+				if (YAN_V[j].givename() == ch1.givename()) {
+					present = true;
+				}
+			}
+			if (present != true) {
+				YAN_V.push_back(ch1);
+			}
+
+		}
+		else if (loc1 == "AZIM") {
+			for (int j = 0; j < AZIM_V.size(); j++) {
+				if (AZIM_V[j].givename() == ch1.givename()) {
+					present = true;
+				}
+			}
+			if (present != true) {
+				AZIM_V.push_back(ch1);
+			}
+
+		}
+		else if (loc1 == "RUBY") {
+			for (int j = 0; j < RUBY_V.size(); j++) {
+				if (RUBY_V[j].givename() == ch1.givename()) {
+					present = true;
+				}
+			}
+			if (present != true) {
+				RUBY_V.push_back(ch1);
+			}
+
+		}
+		else if (loc1 == "LOCHS") {
+			for (int j = 0; j < LOCHS_V.size(); j++) {
+				if (LOCHS_V[j].givename() == ch1.givename()) {
+					present = true;
+				}
+			}
+			if (present != true) {
+				LOCHS_V.push_back(ch1);
+			}
+
+		}
+		else {
+			cout << "ERROR DETECTED IN sbInsert, EXITING.\n\n\n";
+			break;
+		}
+		present = false;
+	}
+	return;
+}
+
 void vEmpty(vector<Hunt>&  v1) {
 	while (v1.empty() != true) {
 		v1.pop_back();
@@ -191,16 +290,19 @@ void vEmpty(vector<Hunt>&  v1) {
 int main()
 {
 	cout << "Hello world!" << endl;
-	string input, filename = "hunts.csv";
+	string hwfile = "hunts.csv";
+	string sbfile = "sbhunts.csv";
 	string version = "hw";
-
-	cout << "Input CSV file name (leave 1 if using default Heavensward hunts): ";
-	std::cin >> input;
+	//string other_version = "Stormblood";
+	string input = "";
+	//cout << "Input CSV file name (leave 1 if using default Heavensward hunts): ";
+	/*std::cin >> input;
 	if (input != "1") {
 		filename = input;
 		version = "sb";
-	}
-	ifstream file(filename);
+		other_version = "Heavensward";
+	}*/
+	ifstream file(hwfile);
 	getline(file, input);
 	int count = 0;
 
@@ -219,10 +321,14 @@ int main()
 	vector<Bill> L3bills;
 	vector<Bill> ubill; //vector to hold user chosen hunt bills
 
+	vector<Bill> sbL1bills;
+	vector<Bill> sbL2bills;
+	vector<Bill> sbL3bills;
+
 	Hunt new1, new2, new3, new4, new5;
 	Bill newBill;
 
-	//WHILE loop to population hunt bills
+	//WHILE loop to populate HW hunt bills
 	while (file.good()) {
 		getline(file, input, ','); // Hunt ID
 		id = stoi(input);
@@ -295,22 +401,115 @@ int main()
 		count++;
 	}
 	//cout << input;
-
 	file.close();
+
+	ifstream file2(sbfile);
+	getline(file2, input);
+	count = 0;
+	//WHILE loop to populate SB hunt bills
+	while (file2.good()) {
+		getline(file2, input, ','); // Hunt ID
+		id = stoi(input);
+
+		getline(file2, input, ',');	//Hunt Mark #1
+		h1 = input;
+		getline(file2, input, ',');	//#1 kills needed
+		num1 = stoi(input);
+		getline(file2, input, ',');
+		loc1 = input;
+
+		getline(file2, input, ',');	//Hunt Mark #2
+		h2 = input;
+		getline(file2, input, ',');	//#2 kills needed
+		num2 = stoi(input);
+		getline(file2, input, ',');
+		loc2 = input;
+
+		getline(file2, input, ',');	//Hunt Mark #3
+		h3 = input;
+		getline(file2, input, ',');	//#3 kills needed
+		num3 = stoi(input);
+		getline(file2, input, ',');
+		loc3 = input;
+
+		getline(file2, input, ',');	//Hunt Mark #4
+		h4 = input;
+		getline(file2, input, ',');	//#4 kills needed
+		num4 = stoi(input);
+		getline(file2, input, ',');
+		loc4 = input;
+
+		getline(file2, input, ',');	//Hunt Mark #5
+		h5 = input;
+		getline(file2, input, ',');	//#5 kills needed
+		num5 = stoi(input);
+		getline(file2, input, ',');
+		loc5 = input;
+
+		getline(file2, input, '\n');	//Hunt Bill Level
+		level = stoi(input);
+
+		//Creating hunts from given data
+		new1 = Hunt(h1, loc1, num1);
+		new2 = Hunt(h2, loc2, num2);
+		new3 = Hunt(h3, loc3, num3);
+		new4 = Hunt(h4, loc4, num4);
+		new5 = Hunt(h5, loc5, num5);
+
+		//cout << input;
+		//cout << h1 << ", " << num1 << ", " << loc1 << " | " << h2 << ", " << num2 << ", " << loc2 << " | ";
+		//cout << h3 << ", " << num3 << ", " << loc3 << " | " << h4 << ", " << num4 << ", " << loc4 << " | " << h5 << ", " << num5 << ", " << loc5 << " | " << level << endl;
+
+		//Creating the Hunt Bill with given attributes
+		newBill = Bill(new1, new2, new3, new4, new5, level, id);
+		if (level == 3) {
+			sbL3bills.push_back(newBill);
+		}
+		else if (level == 2) {
+			sbL2bills.push_back(newBill);
+		}
+		else if (level == 1) {
+			sbL1bills.push_back(newBill);
+		}
+		else {
+			cout << "CRITICAL ERROR %%%%%%%%%%%%%%%%%%%%%" << endl;
+			break;
+		}
+
+		count++;
+	}
+
+	file2.close();
 	//cout << "L1 bill size: " << L1bills.size() << ", L2 bill size: " << L2bills.size() << ", L3 bill size: " << L3bills.size() << endl;
 
+
+
+
 	bool running = true, L1running = true, L2running = true, L3running = true, dRun = true;
+	bool sbL1run = true, sbL2run = true, sbL3run = true;
 	bool L1chosen = false, L2chosen = false, L3chosen = false;
+	bool sb1chosen = false, sb2chosen = false, sb3chosen = false;
 	int billnum = 0;
-	int maxSize = 0;
+	int maxSize = 0, sb_maxSize = 0;
 	//Main menu loop
 	while (running) {
 		cout << "%%%% FFXIV Hunt Tracker %%%%\n";
+		/*if (version == "sb") {
+			cout << "%%%% Stormblood Hunts\n %%%%";
+		}
+		else {
+			cout << "%%%% Heavensward Hunts  %%%%\n";
+		}*/
 		cout << "%%%% MENU OPTIONS: \n";
-		cout << "[1]: See Level 1 Hunt Bills\n";
-		cout << "[2]: See Level 2 Hunt Bills\n";
-		cout << "[3]: See Level 3 Hunt Bills\n";
-		cout << "[4]: Display all hunts\n";
+		cout << "[1]: See Heavensward Level 1 Hunt Bills\n";
+		cout << "[2]: See Heavensward Level 2 Hunt Bills\n";
+		cout << "[3]: See Heavensward Level 3 Hunt Bills\n\n";
+		cout << "[4]: See Stormblood Level 1 Hunt Bills\n";
+		cout << "[5]: See Stormblood Level 2 Hunt Bills\n";
+		cout << "[6]: See Stormblood Level 3 Hunt Bills\n";
+
+		cout << "[d/D]: Display all hunts\n";
+		//cout << "[5]: Switch to " << other_version << "\n";
 		cout << "[q/x]: Exit\n";
 		cout << "IN: ";
 		std::cin >> input;
@@ -321,21 +520,21 @@ int main()
 		}
 		else if (input == "1" && L1chosen != true) {
 			// Level 1 Hunt Bill Display and Input
-			while(L1running) {
-				cout << "$$$$ LEVEL 1 HUNT BILLS $$$$\n";
+			while (L1running) {
+				cout << "$$$$ HEAVENSWARD LEVEL 1 HUNT BILLS $$$$\n";
 				for (int i = 0; i < L1bills.size(); i++) {
 					cout << "[" << i << "]: " << L1bills[i].giveV()[0].givename() << endl;
 				}
 				cout << "INPUT: ";
 				cin >> billnum;
 
-				if (billnum < 0 || billnum > 8) {
+				if (billnum < 0 || billnum > L1bills.size() ) {
 					cout << "INVALID NUMBER, TRY AGAIN.\n\n";
 				}
 				else {
 					//ubill.push_back(L1bills[billnum]);
-					
-					
+
+
 					bInsert(L1bills[billnum]);
 					L1running = false;
 				}
@@ -344,12 +543,12 @@ int main()
 			L1chosen = true;
 		}
 		else if (input == "1" && L1chosen == true) {
-			cout << "Level 1 Hunt Bill already chosen. Please reset from the Display.\n\n";
+			cout << "Level 1 Heavensward Hunt Bill already chosen. Please reset from the Display.\n\n";
 		}
 		else if (input == "2" && L2chosen != true) {
-			
+
 			while (L2running) {
-				cout << "$$$$ LEVEL 2 HUNT BILLS $$$$\n";
+				cout << "$$$$ HEAVENSWARD LEVEL 2 HUNT BILLS $$$$\n";
 				for (int i = 0; i < L2bills.size(); i++) {
 					cout << "[" << i << "]: " << L2bills[i].giveV()[0].givename() << ", " << L2bills[i].giveV()[1].givename() << endl;
 				}
@@ -369,17 +568,17 @@ int main()
 			L2chosen = true;
 		}
 		else if (input == "2" && L2chosen == true) {
-			cout << "Level 2 Hunt Bill already chosen. Please reset from the Display.\n\n";
+			cout << "Level 2 Heavensward Hunt Bill already chosen. Please reset from the Display.\n\n";
 		}
 		else if (input == "3" && L3chosen != true) {
 			while (L3running) {
-				cout << "$$$$ LEVEL 2 HUNT BILLS $$$$\n";
+				cout << "$$$$ HEAVENSWARD LEVEL 3 HUNT BILLS $$$$\n";
 				for (int i = 0; i < L3bills.size(); i++) {
 					cout << "[" << i << "]: " << L3bills[i].giveV()[0].givename() << endl;
 				}
 				cout << "INPUT: ";
 				cin >> billnum;
-				if (billnum < 0 || billnum > 16) {
+				if (billnum < 0 || billnum > L3bills.size() ) {
 					cout << "INVALID NUMBER, TRY AGAIN.\n\n";
 				}
 				else {
@@ -390,19 +589,94 @@ int main()
 					L3running = false;
 
 				}
-			
+
 			}
 			L3running = true;
 			L3chosen = true;
 		}
 		else if (input == "3" && L3chosen == true) {
-			cout << "Level 3 Hunt Bill already chosen. Please reset from the Display.\n\n";
+			cout << "Level 3 Heavensward Hunt Bill already chosen. Please reset from the Display.\n\n";
 		}
-		else if (input == "4") {
+		else if (input == "4" && sb1chosen != true) {
+			while (sbL1run) {
+				cout << "$$$$ STORMBLOOD LEVEL 1 HUNT BILLS $$$$\n";
+				for (int i = 0; i < sbL1bills.size(); i++) {
+					cout << "[" << i << "]: " << sbL1bills[i].giveV()[0].givename() << ", " << sbL1bills[i].giveV()[1].givename() << endl;
+				}
+				cout << "INPUT: ";
+				cin >> billnum;
+				if (billnum < 0 || billnum > sbL1bills.size() ) {
+					cout << "INVALID NUMBER, TRY AGAIN.\n\n";
+				}
+				else {
+					//ubill.push_back(sbL1bills[billnum]);
+					sbInsert(sbL1bills[billnum]);
+					sbL1run = false;
+
+				}
+			}
+			sbL1run = true;
+			sb1chosen = true;
+		}
+		else if (input == "4" && sb1chosen == true) {
+			cout << "Level 1 Stormblood Hunt Bill already chosen. Please reset from the Display.\n\n";
+
+		}
+		else if (input == "5" && sb2chosen != true) {
+			while (sbL2run) {
+				cout << "$$$$ STORMBLOOD LEVEL 2 HUNT BILLS $$$$\n";
+				for (int i = 0; i < sbL2bills.size(); i++) {
+					cout << "[" << i << "]: " << sbL2bills[i].giveV()[0].givename() << ", " << sbL2bills[i].giveV()[1].givename() << endl;
+				}
+				cout << "INPUT: ";
+				cin >> billnum;
+				if (billnum < 0 || billnum > sbL2bills.size() ) {
+					cout << "INVALID NUMBER, TRY AGAIN.\n\n";
+				}
+				else {
+					//ubill.push_back(sbL2bills[billnum]);
+					sbInsert(sbL2bills[billnum]);
+					sbL2run = false;
+
+				}
+			}
+			sbL2run = true;
+			sb2chosen = true;
+		}
+		else if (input == "5" && sb2chosen == true) {
+			cout << "Level 2 Stormblood Hunt Bill already chosen. Please reset from the Display.\n\n";
+
+		}
+		else if (input == "6" && sb3chosen != true) {
+			while (sbL3run) {
+				cout << "$$$$ STORMBLOOD LEVEL 3 HUNT BILLS $$$$\n";
+				for (int i = 0; i < sbL3bills.size(); i++) {
+					cout << "[" << i << "]: " << sbL3bills[i].giveV()[0].givename() << ", " << sbL3bills[i].giveV()[1].givename() << endl;
+				}
+				cout << "INPUT: ";
+				cin >> billnum;
+				if (billnum < 0 || billnum > sbL3bills.size() ) {
+					cout << "INVALID NUMBER, TRY AGAIN.\n\n";
+				}
+				else {
+					//ubill.push_back(sbL3bills[billnum]);
+					sbInsert(sbL3bills[billnum]);
+					sbL3run = false;
+
+				}
+			}
+			sbL3run = true;
+			sb3chosen = true;
+		}
+		else if (input == "6" && sb3chosen == true) {
+			cout << "Level 3 Stormblood Hunt Bill already chosen. Please reset from the Display.\n\n";
+
+		}
+		else if (input == "d" || input == "D") {
 			while (dRun) {
 				//cout << CWH_V.size() << " " << FORE_V.size() << " " << MISTS_V.size() << " " << HINT_V.size() << " " << SEA_V.size() << " " << AZYS_V.size() << endl;
 				
-				if (version == "hw") {
+				//if (version == "hw") {
 					cout << setw(25) << left << "Coerthas Western";
 					cout << setw(25) << left << "Drav. Forelands";
 					cout << setw(24) << left << "Churning Mists";
@@ -480,14 +754,97 @@ int main()
 						}
 						cout << endl;
 					}
-					
-				}
-				if (maxSize == 0) {
-					cout << "You have not selected any hunts.";
-				}
+					if (maxSize == 0) {
+						cout << "You have not selected any Heavensward hunts.\n\n\n";
+					}
+				//}
+					cout << endl << endl;
+				//if (version == "sb") {
+					cout << setw(25) << left << "The Fringes";
+					cout << setw(25) << left << "The Peaks";
+					cout << setw(24) << left << "The Lochs";
+					cout << setw(24) << left << "The Ruby Sea";
+					cout << setw(24) << left << "Yanxia";
+					cout << left << "The Azim Steppes";// << setw(24);
+					cout << endl;
+
+
+					if (sb_maxSize < FRIN_V.size()) {
+						sb_maxSize = FRIN_V.size();
+					}
+					if (sb_maxSize < PEAKS_V.size()) {
+						sb_maxSize = PEAKS_V.size();
+					}
+					if (sb_maxSize < RUBY_V.size()) {
+						sb_maxSize = RUBY_V.size();
+					}
+					if (sb_maxSize < YAN_V.size()) {
+						sb_maxSize = YAN_V.size();
+					}
+					if (sb_maxSize < YAN_V.size()) {
+						sb_maxSize = YAN_V.size();
+					}
+					if (sb_maxSize < LOCHS_V.size()) {
+						sb_maxSize = LOCHS_V.size();
+					}
+
+					for (int i = 0; i < 150; i++) {
+						cout << "=";
+					}
+					cout << endl;
+
+					for (int i = 0; i < sb_maxSize; i++) {
+						if (i < FRIN_V.size()) {
+							cout << setw(20) << FRIN_V[i].givename() << "| " << setw(3) << FRIN_V[i].givenum();
+						}
+						else {
+							cout << setw(25) << "";
+						}
+
+						if (i < PEAKS_V.size()) {
+							cout << setw(20) << PEAKS_V[i].givename() << "| " << setw(3) << PEAKS_V[i].givenum();
+						}
+						else {
+							cout << setw(25) << "";
+						}
+
+						if (i < LOCHS_V.size()) {
+							cout << setw(20) << LOCHS_V[i].givename() << "| " << setw(2) << LOCHS_V[i].givenum();
+						}
+						else {
+							cout << setw(24) << "";
+						}
+
+						if (i < RUBY_V.size()) {
+							cout << setw(20) << RUBY_V[i].givename() << "| " << setw(2) << RUBY_V[i].givenum();
+						}
+						else {
+							cout << setw(24) << "";
+						}
+
+						if (i < YAN_V.size()) {
+							cout << setw(20) << YAN_V[i].givename() << "| " << setw(2) << YAN_V[i].givenum();
+						}
+						else {
+							cout << setw(24) << "";
+						}
+
+						if (i < AZIM_V.size()) {
+							cout << setw(20) << AZIM_V[i].givename() << "| " << setw(2) << AZIM_V[i].givenum(); //<< setw(24);
+						}
+						else {
+							cout << ""; //<< setw(24);
+						}
+						cout << endl;
+					}
+				//}
+					if (sb_maxSize == 0) {
+						cout << "You have not selected any Stormblood hunts.";
+					}
 				cout << endl << endl;
 				cout << "[q]: return to main menu\n";
-				cout << "[r]: reset hunts\n";
+				cout << "[r]: reset HW hunts\n";
+				cout << "[t]: reset SB hunts\n";
 				cout << "INPUT: ";
 
 				cin >> input;
@@ -507,10 +864,33 @@ int main()
 					vEmpty(SEA_V);
 					vEmpty(AZYS_V);
 				}
+				else if (input == "t") {
+					sb1chosen = false;
+					sb2chosen = false;
+					sb3chosen = false;
+					sb_maxSize = 0;
+
+					vEmpty(FRIN_V);
+					vEmpty(PEAKS_V);
+					vEmpty(RUBY_V);
+					vEmpty(YAN_V);
+					vEmpty(AZIM_V);
+					vEmpty(LOCHS_V);
+				}
 				
 			}
 			dRun = true;
 		}
+		/*else if (input == "5") {
+			if (version == "sb") {
+				version = "hw";
+				other_version = "Stormblood";
+			}
+			else {
+				version = "sb";
+				other_version = "Heavensward";
+			}
+		}*/
 		else {
 			cout << "ERROR: Input not recognized\n\n";
 		}

@@ -1,0 +1,33 @@
+ID#,Mark 1,# Needed,Loc1,Mark 2,# Needed,Loc2,Mark 3,# Needed,Loc3,Mark 4,# Needed,Loc4,Mark 5,# Needed,Loc5,Level
+1,Velodyna Sarcosuchus,3,FRIN,Mossling,2,FRIN,Scarab Beetle,3,PEAKS,Tatsunoko,2,RUBY,Red Bukan,2,RUBY,1
+4,Mossling,2,FRIN,Mountain Grizzly,1,FRIN,Marble Urolith,1,PEAKS,Shiranui,2,RUBY,Yumemi,1,RUBY,1
+7,Gazella Hawk,2,FRIN,Goosefish,3,FRIN,Bloodglider,2,PEAKS,Bombfish,2,RUBY,Coralshell,2,RUBY,1
+14,Sapria,1,FRIN,Gelid Bhoot,1,FRIN,Scarab Beetle,2,PEAKS,Gyuki,1,RUBY,Red Honkan,2,RUBY,1
+15,Foper,3,FRIN,Mountain Grizzly,1,FRIN,Fluturini,2,PEAKS,Sea Serpent,2,RUBY,Striped Ray,2,RUBY,1
+22,Sapria,1,FRIN,Fluturini,2,PEAKS,Marble Urolith,1,PEAKS,Unkiu,3,RUBY,Naked Yumemi,1,RUBY,1
+27,Gazelle Hawk,2,FRIN,Diakka,2,FRIN,Crag Claw,2,PEAKS,Unkiu,3,RUBY,Gasame,2,RUBY,1
+2,Lupin Spearhand,1,YAN,Water Serpent,2,YAN,Steppe Dzo,3,AZIM,Manzasiri,3,AZIM,Qalyana Brahmin,1,FRIN,2
+5,Water Serpent,2,YAN,Minobi,3,YAN,Khun Chuluu,3,AZIM,Muu Shuwuu,2,AZIM,Qalyana Kshatriya,2,FRIN,2
+10,Minobi,3,YAN,Bi Fang,2,YAN,Khun Chuluu,3,AZIM,Baras,3,AZIM,Teleoceras,2,FRIN,2
+11,Leshy,3,FRIN,Spinner,3,FRIN,Gyr Abanian Hornbill,2,PEAKS,Naked Yumemi,1,RUBY,Bombfish,2,RUBY,2
+13,Tenaga,2,YAN,Taoquan,2,YAN,Matamata,2,AZIM,Chaochu,2,AZIM,Magatsu Kiyofusa,3,YAN,2
+17,Vanara,2,YAN,Lupin Bowhand,1,YAN,Halgai,3,AZIM,Purbol,3,AZIM,Ebisu Catfish,3,YAN,2
+20,Lupin Bladehand,1,YAN,Rhino Beetle,3,YAN,Muu Shuwuu,2,AZIM,Matamata,2,AZIM,Qalyana Shudra,2,FRIN,2
+25,Taoquan,2,YAN,Minobi,3,YAN,Matanga,2,AZIM,Halgai,3,AZIM,Gazelle,2,FRIN,2
+29,Rhino Beetle,3,YAN,Vanara,2,YAN,Mammoth,2,AZIM,Manzasiri,3,AZIM,Gazelle,2,FRIN,2
+3,Specter,3,LOCHS,Gazelle Hawk,2,FRIN,Manzasiri,3,AZIM,Scarab Beetle,2,YAN,Lupin Spearhand,1,YAN,3
+6,Vepar,2,LOCHS,Diakka,2,FRIN,Shiranui,2,RUBY,Jhammel,1,PEAKS,Steppe Dhole,3,AZIM,3
+8,Halgai,3,AZIM,Qalyana Brahmin,1,FRIN,Flying Shark,2,RUBY,Highland Eruca,1,PEAKS,Bi Fang,2,YAN,3
+9,Soblyn,2,LOCHS,Gelid Bhoot,1,FRIN,Naked Yumemi,1,RUBY,Crag Claw,2,PEAKS,Lupin Bowhand,1,YAN,3
+12,Dark Clay Beast,2,LOCHS,Goosefish,3,FRIN,Red Bukan,2,RUBY,Purbol,3,AZIM,Ebisu Catfish,3,YAN,3
+16,Creeping Edila,3,LOCHS,Velodyna Sarcosuchus,3,FRIN,Baras,3,AZIM,Gyr Abanian Hornbill,2,PEAKS,Lupin Bladehand,1,YAN,3
+18,Abaddon,3,LOCHS,Foper,3,FRIN,Coralshell,2,RUBY,Pantera,2,PEAKS,Vanara,2,YAN,3
+19,Loch Leech,2,LOCHS,Leshy,3,FRIN,Red Hyoe,2,RUBY,Kongamato,2,PEAKS,Magatsu Kiyofusa,3,YAN,3
+21,Abalathian Minotaur,2,LOCHS,Qalyana Shudra,2,FRIN,Steppe Dzo,3,AZIM,Marble Urolith,1,PEAKS,Water Serpent,2,YAN,3
+23,Guard Bhoot,3,LOCHS,Teleoceras,2,FRIN,Bombfish,2,RUBY,Matamata,2,AZIM,Magatsu Kiyofusa,3,YAN,3
+24,Kaluk,3,LOCHS,Veloydyna Pugil,2,FRIN,Yumemi,1,RUBY,Bloodglider,2,PEAKS,Ebisu Catfish,3,YAN,3
+26,Loch Nanka,1,LOCHS,Mossling,2,FRIN,Tatsunoko,2,RUBY,Fluturini,2,PEAKS,Khun Chuluu,3,AZIM,3
+28,Salt Dhruva,3,LOCHS,Spinner,3,FRIN,Sea Serpent,2,RUBY,True Griffin,1,PEAKS,Minobi,3,YAN,3
+30,Phoebad,3,LOCHS,Sapria,1,FRIN,Striped Ray,2,RUBY,Highland Eruca,1,PEAKS,Mammoth,2,AZIM,3
+31,Chaochu,2,AZIM,Mountain Grizzly,1,FRIN,Unkiu,3,RUBY,True Griffin,1,PEAKS,Tenaga,2,YAN,3
+32,Leshy,3,FRIN,Gelid Bhoot,1,FRIN,Gyr Abanian Hornbill,2,PEAKS,Shiranui,2,RUBY,Yumemi,1,RUBY,1
